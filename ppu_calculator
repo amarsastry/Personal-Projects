@@ -1,0 +1,24 @@
+#price per unit calculator
+
+item_number = raw_input("please enter the item description: \n")
+
+while True:
+	try:
+		item_price = float(raw_input("please enter the price of the item, in dollars: \n"))
+		break
+	except ValueError:
+		print "that is not a valid number, please try again.\n"
+
+while True:
+	try:	
+		item_count = int(raw_input("how many individual units are in this set? \n"))
+		break
+	except ValueError:
+		print "that is not a valid number, please try again.\n"
+
+def ppu_calc():
+	ppu = item_price/item_count
+	ppu = round(ppu, 2)
+	print "the price is $", ppu, "per unit"
+
+ppu_calc()
