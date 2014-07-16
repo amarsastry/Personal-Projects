@@ -1,4 +1,5 @@
 #price per unit calculator
+#http://repl.it/V4G
 
 def ppu_calc():
 	item_number = raw_input("please enter the item description: \n")
@@ -22,15 +23,13 @@ def ppu_calc():
 
 ppu_calc()
 
-try_again =raw_input("Would you like to perform another calculation? Enter 'Y' or 'N'\n")
 
 while True:
-	try:
-		if try_again == "Y" : 
-			ppu_calc()
-			try_again = raw_input("Would you like to perform another calculation? Enter 'Y' or 'N'\n")
-			continue
-		elif try_again == "N" : print "goodbye"
-		break
-	except: 
-		print "that is not a valid choice, please try again."	
+	try_again = raw_input("Enter 'Y' if you'd like to try another calculation. Otherwise, press enter to exit.\n")
+	try_again = try_again.upper()
+	if try_again == "Y" : 
+		ppu_calc()
+		continue
+	else:	
+		print "Have a nice day!"
+	break		
