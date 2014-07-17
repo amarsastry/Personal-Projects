@@ -1,5 +1,9 @@
-#price per unit calculator
-#http://repl.it/V4G
+### price per unit calculator
+### http://repl.it/V4G
+
+d = dict()
+#empty dictionary
+
 
 def ppu_calc():
 	item_number = raw_input("please enter the item description: \n")
@@ -20,16 +24,25 @@ def ppu_calc():
 	ppu = item_price/item_count
 	ppu = round(ppu, 2)
 	print "the price is $", ppu, "per unit\n"
+	d[item_number] = ppu
+
+
+
+print "Welcome to the Price Per Unit Calculator"
 
 ppu_calc()
 
-
 while True:
-	try_again = raw_input("Enter 'Y' if you'd like to try another calculation. Otherwise, press enter to exit.\n")
-	try_again = try_again.upper()
-	if try_again == "Y" : 
+	try_again = raw_input("Enter 'Y' if you'd like to try another calculation. Or press enter if you'd like to find which item has the lowest ppu.\n")
+	try_again = try_again.lower()
+	if try_again == "y" : 
 		ppu_calc()
 		continue
 	else:	
-		print "Have a nice day!"
-	break		
+		d
+		smallest = None
+		for values in d :
+			if smallest is None or values < smallest:
+				smallest = values
+		print "The best deal is",values, "since each unit costs $",d[values]
+	break	
